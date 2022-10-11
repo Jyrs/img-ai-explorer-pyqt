@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-#
 # Created by: PyQt5 UI code generator 5.15.7
 #
 # WARNING: Any manual changes made to this file will be lost when pyuic5 is
@@ -7,42 +5,53 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtCore import Qt
 
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(669, 511)
+        MainWindow.resize(1227, 779)
+        MainWindow.setLayoutDirection(QtCore.Qt.LeftToRight)
 
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
+
         self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
         self.gridLayout.setObjectName("gridLayout")
+        self.treeView = QtWidgets.QTreeView(self.centralwidget)
 
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.treeView.sizePolicy().hasHeightForWidth())
+
+        self.treeView.setSizePolicy(sizePolicy)
+        self.treeView.setBaseSize(QtCore.QSize(0, 0))
+        self.treeView.setObjectName("treeView")
+        self.gridLayout.addWidget(self.treeView, 0, 0, 1, 1)
         self.tableWidget = QtWidgets.QTableWidget(self.centralwidget)
+        self.tableWidget.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.tableWidget.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.tableWidget.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAsNeeded)
+        self.tableWidget.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
+        self.tableWidget.setAutoScroll(True)
+        self.tableWidget.setAutoScrollMargin(0)
         self.tableWidget.setDragDropMode(QtWidgets.QAbstractItemView.DragDrop)
         self.tableWidget.setShowGrid(False)
+        self.tableWidget.setWordWrap(True)
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(0)
         self.tableWidget.setRowCount(0)
         self.tableWidget.horizontalHeader().setVisible(False)
         self.tableWidget.horizontalHeader().setHighlightSections(True)
+        self.tableWidget.horizontalHeader().setStretchLastSection(False)
         self.tableWidget.verticalHeader().setVisible(False)
+
         self.gridLayout.addWidget(self.tableWidget, 0, 1, 1, 1)
-
-        self.treeView = QtWidgets.QTreeView(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.treeView.sizePolicy().hasHeightForWidth())
-        self.treeView.setSizePolicy(sizePolicy)
-        self.treeView.setBaseSize(QtCore.QSize(0, 0))
-        self.treeView.setObjectName("treeView")
-        self.gridLayout.addWidget(self.treeView, 0, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
-
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 669, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1227, 21))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -56,12 +65,3 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
 
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())
