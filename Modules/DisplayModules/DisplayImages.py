@@ -1,4 +1,4 @@
-from Modules.SearchImageModule import *
+from Modules.SearchModules.SearchImageModule import *
 from Modules.ImageBlockTemplate import *
 
 

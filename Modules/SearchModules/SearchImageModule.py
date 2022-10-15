@@ -6,7 +6,7 @@ import os
 class SearchImageModule(ABC):
     @staticmethod
     def find(path):
-        if os.path.exists("Modules\\TestStorage"):
+        if os.path.exists(path):
             print("folder is found")
             path_list = list(glob(os.path.join(path, "*.jpg")))
             path_list += list(glob(os.path.join(path, "*.png")))

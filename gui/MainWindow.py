@@ -1,5 +1,5 @@
-from Modules.SearchDirectoriesTreeModule import *
-from Modules.DisplayImages import *
+from Modules.SearchModules.SearchDirectoriesTreeModule import *
+from Modules.DisplayModules.DisplayImages import *
 from gui import MainWindowUI
 import sys
 
