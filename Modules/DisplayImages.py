@@ -1,4 +1,4 @@
-from Modules.ImageFoundModule import *
+from Modules.SearchImageModule import *
 from Modules.ImageBlockTemplate import *
 
 
@@ -8,7 +8,7 @@ class DisplayImages(ABC):
         table_widget.clear()
         column_number = 0
         row_number = 0
-        image_path_list = ImageFoundModule.synchImage(current_path)
+        image_path_list = SearchImageModule.find(current_path)
 
         table_widget.setRowCount((len(image_path_list) // 6) + 1)
         table_widget.setColumnCount(6)
