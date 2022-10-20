@@ -1,12 +1,12 @@
 import sqlite3
 
 
-class SQLConnect:
+class SQLiteConnect:
     __instance = None
 
     def __init__(self, db_name):
         self.sqlite_connection = sqlite3.connect(db_name)
-        self.sql_handler = self.sqlite_connection.cursor()
+        self.sqlite_handler = self.sqlite_connection.cursor()
 
     @classmethod
     def getConnect(cls, db_name):
@@ -17,7 +17,7 @@ class SQLConnect:
                 print(error)
             finally:
                 if sqlite_connection:
-                    cls.__instance = SQLConnect(db_name)
+                    cls.__instance = SQLiteConnect(db_name)
                     sqlite_connection.close()
                     return cls.__instance
                 else:

@@ -1,10 +1,10 @@
 class DetectedImage():
-    id = 0
-    name = "none"
-    path = "none"
-    detected_objects = []
-    height = 0
-    wight = 0
+    __id = 0
+    __name = "none"
+    __path = "none"
+    __detected_objects = []
+    __height = 0
+    __wight = 0
 
     def __init__(self, id, name, path, detected_objects, height, wight):
         self.id = id

@@ -3,9 +3,10 @@ from glob import glob
 import os
 
 
-class SearchImageModule(ABC):
-    @staticmethod
-    def find(path):
+class SearchImageModel(ABC):
+
+    @classmethod
+    def find(cls, path):
         if os.path.exists(path):
             print("folder is found")
             path_list = list(glob(os.path.join(path, "*.jpg")))
