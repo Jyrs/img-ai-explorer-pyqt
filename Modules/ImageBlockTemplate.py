@@ -1,6 +1,7 @@
 from PyQt5 import QtWidgets, QtGui
-from PyQt5.QtCore import Qt, QSize
+from PyQt5.QtCore import Qt, QSize, QBuffer
 import os
+from pil import Image, ImageQt
 
 
 class ImageBlockTemplate:
@@ -15,10 +16,17 @@ class ImageBlockTemplate:
         self.image_name.setText(path[path.rfind("\\", 0, len(path)) + 1:-1])
         self.image_name.setMargin(5)
 
-        self.pixmap = QtGui.QPixmap(path)
-        self.pixmap_rect = self.pixmap.rect()
-        # self.pixmap.scaled(self.pixmap_rect.width() // 4, self.pixmap_rect.height() // 4)
+        '''
+        original = Image.open(path)
+        (width, height) = (original.width // 2, original.height // 2)
+        im_resized = original.resize((width, height))
+        im_resizedQt = im_resized.QImage.QImage(im_resized)
+        self.pixmap = QtGui.QPixmap().fromImage(im_resizedQt)
+        self.image_in_label.setPixmap(self.pixmap)
 
+
+        #self.pixmap_rect = self.pixmap.rect()
+        # self.pixmap.scaled(self.pixmap_rect.width() // 4, self.pixmap_rect.height() // 4)
         self.w = self.pixmap_rect.width()
         self.h = self.pixmap_rect.height()
         self.w_flex = self.w // 4
@@ -28,6 +36,8 @@ class ImageBlockTemplate:
         self.image_in_label.setPixmap(self.pixmap)
         self.image_in_label.setStyleSheet("QFrame, QLabel, QToolTip { border: 2px solid black; border-radius: 4px; "
                                           "padding: 2px;}")
+        '''
+
         self.image_in_label.setScaledContents(True)
         self.cell_widget_layout.addWidget(self.image_in_label)
         self.cell_widget_layout.setAlignment(self.image_in_label, Qt.AlignTop)

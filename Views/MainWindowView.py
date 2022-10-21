@@ -6,7 +6,6 @@ from Utilities.MainWindowViewMeta import MainWindowViewMeta
 
 
 class MainWindowView(QMainWindow, AbstractObserver, metaclass=MainWindowViewMeta):
-
     def __init__(self, in_controller, in_model, parent=None):
         super(QMainWindow, self).__init__(parent)
 
