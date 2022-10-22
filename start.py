@@ -1,8 +1,6 @@
 import sys
 import configparser
 from PyQt5.QtWidgets import QApplication
-#from Utilities.ObserverThread import *
-
 from Models.MainWindowsModel import MainWindowsModel
 from Controllers.MainWindowsController import MainWindowsController
 
@@ -14,6 +12,8 @@ def main():
     database_path = config["DEFAULT"]["database_path"]
 
     app = QApplication(sys.argv)
+    app.setStyleSheet(open('stylesheets/style.qss').read())
+
     MainWindowView_model = MainWindowsModel()
     MainWindowsView_controller = MainWindowsController(MainWindowView_model, root_path)
 

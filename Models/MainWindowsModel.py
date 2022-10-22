@@ -1,4 +1,6 @@
 from PyQt5 import QtWidgets
+from PyQt5.QtCore import Qt, QDir
+
 from Modules.SearchImageModule import *
 
 
@@ -35,7 +37,7 @@ class MainWindowsModel:
             self._list_image_current_path = SearchImageModel.find(self._current_path)
             self.notifyObservers()
         else:
-            self._root_path = None
+            self._current_path = None
 
     @property
     def root_path(self):
@@ -46,6 +48,7 @@ class MainWindowsModel:
         if os.path.exists(value):
             self._root_path = value
             self._file_system_model = QtWidgets.QFileSystemModel()
+            self._file_system_model.setFilter(QDir.NoDotAndDotDot | QDir.Dirs)
             self._file_system_model.setReadOnly(False)
             self._model_idx = self.file_system_model.setRootPath(value)
             self._current_path = value
